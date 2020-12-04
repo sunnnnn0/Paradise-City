@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,900|Noto+Sans+KR:300,400,700&display=swap" rel="stylesheet">
+
+    <!-- fullpage.css -->
+    <link rel="stylesheet" href="./css/fullpage.min.css">
+    <!-- owlcarousel.css -->
+    <link rel="stylesheet" href="./css/owl.carousel.css">
+    <link rel="stylesheet" href="./css/owl.theme.default.css">
+    <!-- script -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.min.js"></script>
+    <script src="jquery.datepicker2.min.js"></script>
+    <script src="./js/fullpage.min.js"></script>
+    <!--  css -->
+    <link rel="stylesheet" href="./p-city.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+
+
+    <script>
+        $(function() {
+            //드롭다운 메뉴 스크립트
+            $(".icon__menu").click(function(e) {
+                e.preventDefault();
+                $(this).css("display", "none");
+                $(".icon__close").css("display", "block");
+
+                $(".mNav__wrap").slideToggle();
+            });
+
+            $(".icon__close").click(function() {
+                $(this).css("display", "none");
+                $(".icon__menu").css("display", "block");
+
+                $(".mNav__wrap").css("display", "none");
+            });
+
+            //드롭다운 메뉴 안에 자식 드롭다운 메뉴 스크립트
+            $(".mNav__menu").click(function() {
+                $(this).next().slideToggle(200);
+                $(this).parent().siblings(".mNavList").children(".mNav__subList").slideUp(200);
+
+                var btn = $(this).children(".mNav__menu--btn").hasClass("active");
+
+                if (btn == false) {
+                    $(".mNav__menu--btn").removeClass("active")
+                    $(this).children(".mNav__menu--btn").addClass("active");
+                } else {
+                    $(this).children(".mNav__menu--btn").removeClass("active");
+                }
+            });
+
+            //spiner
+            $(function(){
+                $(".date__icon--plus").click(function() {
+                    var count = $(".date--num.guest").val();
+                    count = parseInt(count) + 1;
+                    $(".date--num.guest").val(count);
+                });
+                $(".date__icon--minus").click(function() {
+                    var count = $(".date--num.guest").val();
+                    if(count == 1) {
+                        return;
+                    }
+                    count = parseInt(count) - 1;
+                    $(".date--num.guest").val(count);
+                });
+            });
+
+            //풀페이지 스크립트
+            $('#fullpage').fullpage({
+                navigation: true,
+                autoScrolling: true,
+                scrollingSpeed: 1000,
+                responsiveWidth: 1024,
+                scrollOverflow: true,
+                scrollOverflowReset: true,
+                controlArrows: true,
+            });
+
+            //배너 슬라이더 스크립트
+            $('.banner .owl-carousel').owlCarousel({
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+
+            })
+
+
+            //Featured 슬라이더 스크립트
+            $('.featured__wrapper .owl-carousel').owlCarousel({
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    800: {
+                        items: 2
+                    },
+                    1024: {
+                        items: 2
+                    },
+                    1280: {
+                        items: 3
+                    }
+                }
+            });
+
+            //Membership 슬라이더 스크립트
+            $('.membership.owl-carousel').owlCarousel({
+                center: true,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                items:2,
+                dots: false,
+                margin:55,
+                responsive:{
+                    600:{
+                        items:3,
+
+                    },
+                    1025:{
+                        items:6,
+
+                    }
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="scrolltop">
+        <a href="#section1" class="topBtn">
+            <span class="material-icons">arrow_upward</span>
+        </a>
+    </div>
+    <!-- Dropdown Menu -->
+    <div class="mNav__wrap">
+        <ul class="mNav">
+            <li class="mNavList">
+                <div class="mNav__menu">
+                    <h2 class="mNav__menu--title">ABOUT</h2>
+                    <div class="mNav__menu--btn">
+                        <span class="material-icons">keyboard_arrow_down</span>
+                    </div>
+                    <a href="#" class="icon__close">
+                        <span class="material-icons">clear</span>
+                    </a>
+                </div>
+                <ul class="mNav__subList">
+                    <li class="mNav__subList--list">
+                        <a href="/paradisecity/about-1.html">ABOUT1</a>
+                    </li>
+                    <li class="mNav__subList--list">
+                        <a href="/paradisecity/about-2.html">ABOUT2</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="mNavList">
+                <div class="mNav__menu">
+                    <h2 class="mNav__menu--title">HOTELS</h2>
+                    <div class="mNav__menu--btn">
+                        <span class="material-icons">keyboard_arrow_down</span>
+                    </div>
+                </div>
+                <ul class="mNav__subList">
+                    <li class="mNav__subList--list">
+                        <a href="/paradisecity/rooms.html">ROOMS</a>
+                    </li>
+                    <li class="mNav__subList--list">
+                        <a href="/paradisecity/dining.html">DINING</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="mNavList">
+                <div class="mNav__menu">
+                    <h2 class="mNav__menu--title">ENTERTAINMENT</h2>
+                    <div class="mNav__menu--btn">
+                        <span class="material-icons">keyboard_arrow_down</span>
+                    </div>
+                </div>
+                <ul class="mNav__subList">
+                    <li class="mNav__subList--list">
+                        <a href="/paradisecity/casino.html">CASINO</a>
+                    </li>
+                    <li class="mNav__subList--list">
+                        <a href="/paradisecity/art.html">ART</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="mNavList">
+                <div class="mNav__menu">
+                    <h2 class="mNav__menu--title">
+                        <a href="#">RESERVATION</a>
+                    </h2>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- Outline -->
+    <div class="outline">
+        <ul class="outline__line">
+            <li class="line type1"></li>
+            <li class="line type1"></li>
+            <li class="line type1"></li>
+            <li class="line type1"></li>
+            <li class="line type2"></li>
+            <li class="line type2"></li>
+            <li class="line type2"></li>
+            <li class="line type2"></li>
+        </ul>
+        <p class="line__font">P A R A D I S E C I T Y</p>
+    </div>
+    
+    <div id="fullpage">
+        <!-- 1page (Main) -------------------->
+        <!-- Mobile Header -->
+        <div class="mobile__header--wrap">
+            <header class="mobile__header">
+                <a href="/paradisecity/index.html" class="nav__logo--link">
+                    <img src="./p-city_img/p-city_mobile-logo@3x.png" alt="" class="mobile__logo--img">
+                </a>
+                <div class="header__icon">
+                    <a href="#" class="icon__search">
+                        <span class="material-icons">search</span>
+                    </a>
+                    <a href="#" class="icon__menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </div>
+            </header>
+        </div>
+        <!-- Desktop Header -->
+        <div class="main section fp-auto-height-responsive" data-anchor="section1">
+            <header class="desktop__header">
+                <a href="/paradisecity/index.html" class="nav__desk--logo--s">
+                    <img src="./p-city_img/p-city_desktop-logo(1280).png" alt="">
+                </a>
+                <a href="/paradisecity/index.html" class="nav__desk--logo--m">
+                    <img src="./p-city_img/p-city_desktop-logo(1920).png" alt="">
+                </a>
+                <div class="desktop__header--menu">
+                    <p>MENU</p>
+                </div>
+            </header>
+
+            <!-- Banner -->
+            <div class="banner">
+                <div class="banner owl-carousel owl-theme">
+                    <div class="banner item" style="background-image:url(p-city_img/p-city_banner.jpeg) ">
+                        <div class="banner__link"></div>
+                    </div>
+                    <div class="banner item" style="background-image:url(p-city_img/p-city_banner2.jpg) ">
+                        <div class="banner__link"></div>
+                    </div>
+                    <div class="banner item" style="background-image:url(p-city_img/p-city_banner3.jpg) ">
+                        <div class="banner__link"></div>
+                    </div>
+                    <div class="banner item" style="background-image:url(p-city_img/p-city_banner4.jpg) ">
+                        <div class="banner__link"></div>
+                    </div>
+                </div>
+                <div class="banner__texts">
+                    <p>ENJOY</p>
+                    <p>FABULOUS</p>
+                    <p>STAY!</p>
+                </div>
+            </div>
+            <div class="date__wrap">
+                <div class="date">
+                    <button class="date__btn">
+                        <p class="date--txt">CHECK IN DATE</p>
+                        <div class="date__num--box">
+                            <span class="date--num">06.27</span>
+                            <span class="date--icon">
+                                <i class="material-icons">arrow_drop_down</i>
+                            </span>
+                        </div>
+                    </button>
+                    <button class="date__btn">
+                        <p class="date--txt">CHECK IN DATE</p>
+                        <div class="date__num--box">
+                            <span class="date--num">06.27</span>
+                            <span class="date--icon">
+                                <i class="material-icons">arrow_drop_down</i>
+                            </span>
+                        </div>
+                    </button>
+                    <button class="date__btn">
+                        <p class="date--txt">GUEST</p>
+                        <span class="date__num--box">
+                            <span class="date--num guest">2</span>
+                            <span class="date__icon--minus">
+                                <i class="material-icons">remove</i>
+                            </span>
+                            <span class="date__icon--plus">
+                                <i class="material-icons">add</i>
+                            </span>
+                        </span>
+                    </button>
+                    <button class="date__btn">
+                        <p class="date--txt">GUEST</p>
+                        <span class="date__num--box">
+                            <span class="date--num guest">2</span>
+                            <span class="date__icon--minus">
+                                <i class="material-icons">remove</i>
+                            </span>
+                            <span class="date__icon--plus">
+                                <i class="material-icons">add</i>
+                            </span>
+                        </span>
+                    </button>
+                    <div class="check__btn--wrap">
+                        <button class="check__btn">
+                            <span class="check--txt">CHECK<br>AVAILABILITY</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2page (Event) -------------------->
+        <div class="event__wrap section fp-auto-height-responsive">
+            <div class="event__texts">
+                <p class="event__title--text">PARADISE CITY EVENTS</p>
+                <p class="event__sub--text">파라다이스시티에서 진행되는 다양한 이베트를 만나보세요.</p>
+                <p class="event__more">전체보기</p>
+            </div>
+            <ul class="event">
+                <div class="event__list--wrap">
+                    <li class="event__list">
+                        <img src="./p-city_img/event_img1.png" alt="" class="event__img">
+                        <div class="event__list--texts">
+                            <p class="event--title">CITY FORSTIVAL 2019</p>
+                            <p class="event--content">집돌이, 집순이들을 위한 주말 특급 몸쓰는 페스티벌</p>
+                            <p class="event--date">2019.06.01 ~ 2019.06.30</p>
+                        </div>
+                    </li>
+                </div>
+                <div class="event__list--wrap">
+                    <li class="event__list">
+                        <img src="./p-city_img/event_img2.png" alt="" class="event__img">
+                        <div class="event__list--texts">
+                            <p class="event--title">WELCOME CIMER, 6월 이벤트</p>
+                            <p class="event--content">6월에도 힐링과 짜릿함이 공존하는 LUX URY 스파 씨메르를 즐겨보세요</p>
+                            <p class="event--date">2019.06.01 ~ 2019.06.30</p>
+                        </div>
+                    </li>
+                </div>
+                <div class="event__list--wrap">
+                    <li class="event__list">
+                        <img src="./p-city_img/event_img3.png" alt="" class="event__img">
+                        <div class="event__list--texts">
+                            <p class="event--title">SIX IN THE CITY</p>
+                            <p class="event--content">6월 한달 간, 모일수록 즐거운 클럽 크로마를 경험하세요!</p>
+                            <p class="event--date">2019.06.01 ~ 2019.06.30</p>
+                        </div>
+                    </li>
+                </div>
+                <div class="event__list--wrap">
+                    <li class="event__list">
+                        <img src="./p-city_img/event_img4.png" alt="" class="event__img">
+                        <div class="event__list--texts">
+                            <p class="event--title">HOLIDAY LAND FESTIVAL 2019</p>
+                            <p class="event--content">파라다이스시티에서 즐기는 써머 뮤직 페스티벌</p>
+                            <p class="event--date">2019.07.27 ~ 2019.07.28</p>
+                        </div>
+                    </li>
+                </div>
+                <div class="event__list--wrap">
+                    <li class="event__list">
+                        <img src="./p-city_img/event_img5.png" alt="" class="event__img">
+                        <div class="event__list--texts">
+                            <p class="event--title">PARADISE SUMMER FESTA 2019</p>
+                            <p class="event--content">한 층 더 화려해진 파라다이스시티만의 써머페스타로 초대합니다.</p>
+                            <p class="event--date">2019.07.05 ~ 2019.08.25</p>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+            <div class="event__btn--wrap">
+                <div class="event__bottom--btn">
+                    <div class="bottom--btn link">
+                        <a href="">전체보기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3page (Featured) -------------------->
+        <div class="featured__wrapper section fp-auto-height-responsive">
+            <div class="featured__wrap">
+                <div class="featured__texts">
+                    <p class="featured__title--text">FEATURED OFFERS</p>
+                    <p class="featured__sub--text">파라다이스시티에서 준비한 특별한 상품과 혜택을 지금 만나보세요.</p>
+                    <p class="featuredm__more">전체보기</p>
+                </div>
+            </div>
+            <div class="featured">
+                <div class="owl-carousel">
+                    <div class="featured__list item">
+                        <div class="featured__img">
+                            <img src="./p-city_img/featured_img1.png" alt="">
+                        </div>
+                        <div class="featured__content">
+                            <div class="featured__content--outer">
+                                <div class="content--top">
+                                    <p class="hashtag">#HOTELPARADISE</p>
+                                    <p class="hashtag">#ARTSPACE</p>
+                                </div>
+                                <div class="content--bottom">
+                                    <p class="bottom--title">CITY FORESTIVAL 2019:<br>워크아웃 페스티벌</p>
+                                    <p class="bottom--content">국내 유일의 워크아웃 페스티벌,<br> City Forestival 2019로의 초대</p>
+                                    <a href="" class="content--btn">자세히보기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured__list item">
+                        <div class="featured__img">
+                            <img src="./p-city_img/featured_img2.png" alt="">
+                        </div>
+                        <div class="featured__content">
+                            <div class="featured__content--outer">
+                                <div class="content--top">
+                                    <p class="hashtag">#HOTELPARADISE</p>
+                                    <p class="hashtag">#ARTSPACE</p>
+                                </div>
+                                <div class="content--bottom">
+                                    <p class="bottom--title">ONE SUMMER NIGHT<br></p>
+                                    <p class="bottom--content">눈 앞에 펼쳐지는 영화 같은 여름 밤<br><br></p>
+                                    <a href="" class="content--btn">자세히보기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured__list item">
+                        <div class="featured__img">
+                            <img src="./p-city_img/featured_img3.png" alt="">
+                        </div>
+                        <div class="featured__content">
+                            <div class="featured__content--outer">
+                                <div class="content--top">
+                                    <p class="hashtag">#HOTELPARADISE</p>
+                                    <p class="hashtag">#WONDERBOX</p>
+                                </div>
+                                <div class="content--bottom">
+                                    <p class="bottom--title">DREAM IN<br>WONDERBOX</p>
+                                    <p class="bottom--content">새로운 엔터테인먼트 스팟, 원더박스의초대</p>
+                                    <a href="" class="content--btn">자세히보기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Event Banner -->
+        <div class="section fp-auto-height-responsive">
+            <div class="event__banner--wrap">
+                <div class="event__banner">
+                    <div class="event__banner--texts">
+                        <p class="event__banner--top text">PARADISE ART SPACE</p>
+                        <p class="event__banner--bottom text">폭넓고 다양한 문화 체험을 제공하는 파라다이스시티만의 예술 전시공간 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4page (Membership) -------------------->
+        <div class="membership__wrap section fp-auto-height-responsive">
+            <div class="membership__texts">
+                <p class="membership__title--text">PARADISE SITY MEMBERSHIP</p>
+                <p class="membership__sub--text">파라다이스시티 고객님께 특별한 혜택을 제공해드리는 
+                    <br>다양한 멤버십 프로그램을 소개합니다.</p>
+            </div>
+            <ul class="membership owl-carousel">
+                <li class="membership__list item">
+                    <div class="membership__img">
+                        <img src="./p-city_img/membership_img1.png" alt="" class="membership__img--link">
+                    </div>
+                    <div class="membership__list--texts">
+                        <p class="membership--title">PARADISE SIGNATURE</p>
+                        <p class="membership--content">고품격 서비스와 다양한<br>혜택이 어우러진 
+                            파라다이스시티<br>통합유료 멤버십입니다.</p>
+                    </div>
+                </li>
+                <li class="membership__list item">
+                    <div class="membership__img">
+                        <img src="./p-city_img/membership_img2.png" alt="" class="membership__img--link">
+                    </div>
+                    <div class="membership__list--texts">
+                        <p class="membership--title">PARADISE REWARDS</p>
+                        <p class="membership--content">차별화된 회원 특전과<br>포인트 혜택을 제공하는<br>파
+                            라다이스시티통합<br>무료 멤버십입니다.</p>
+                    </div>
+                </li>
+                <li class="membership__list item">
+                    <div class="membership__img">
+                        <img src="./p-city_img/membership_img3.png" alt="" class="membership__img--link">
+                    </div>
+                    <div class="membership__list--texts">
+                        <p class="membership--title">CHROMA VIP</p>
+                        <p class="membership--content">회원의 크로마 가치를 더욱<br>빛나게 해줄 차별화된 서비스와
+                            <br>혜택 중심의 Invitation Only<br>전용 멤버십입니다.</p>
+                    </div>
+                </li>
+                <li class="membership__list item">
+                    <div class="membership__img">
+                        <img src="./p-city_img/membership_img4.png" alt="" class="membership__img--link">
+                    </div>
+                    <div class="membership__list--texts">
+                        <p class="membership--title">CASINO MEMBERSHIP</p>
+                        <p class="membership--content">K-Style 프리미엄 외국인<br>전용 카지노의 회원만을
+                            <br>위해 다양한 혜택으로 구성된<br>카지노 전용 멤버십입니다.</p>
+                    </div>
+                </li>
+                <li class="membership__list item">
+                    <div class="membership__img">
+                        <img src="./p-city_img/membership_img1.png" alt="" class="membership__img--link">
+                    </div>
+                    <div class="membership__list--texts">
+                        <p class="membership--title">PARADISE SIGNATURE</p>
+                        <p class="membership--content">고품격 서비스와 다양한<br>혜택이 어우러진 
+                            파라다이스시티<br>통합유료 멤버십입니다.</p>
+                    </div>
+                </li>
+                <li class="membership__list item">
+                    <div class="membership__img">
+                        <img src="./p-city_img/membership_img2.png" alt="" class="membership__img--link">
+                    </div>
+                    <div class="membership__list--texts">
+                        <p class="membership--title">PARADISE REWARDS</p>
+                        <p class="membership--content">차별화된 회원 특전과<br>포인트 혜택을 제공하는<br>파
+                            라다이스시티통합<br>무료 멤버십입니다.</p>
+                    </div>
+                </li>
+                <li class="membership__list item">
+                    <div class="membership__img">
+                        <img src="./p-city_img/membership_img3.png" alt="" class="membership__img--link">
+                    </div>
+                    <div class="membership__list--texts">
+                        <p class="membership--title">CHROMA VIP</p>
+                        <p class="membership--content">회원의 크로마 가치를 더욱<br>빛나게 해줄 차별화된 서비스와
+                            <br>혜택 중심의 Invitation Only<br>전용 멤버십입니다.</p>
+                    </div>
+                </li>
+                <li class="membership__list item">
+                    <div class="membership__img">
+                        <img src="./p-city_img/membership_img4.png" alt="" class="membership__img--link">
+                    </div>
+                    <div class="membership__list--texts">
+                        <p class="membership--title">CASINO MEMBERSHIP</p>
+                        <p class="membership--content">K-Style 프리미엄 외국인<br>전용 카지노의 회원만을
+                            <br>위해 다양한 혜택으로 구성된<br>카지노 전용 멤버십입니다.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 5page (Store) -------------------->
+        <div class="store__wrapper section fp-auto-height-responsive">
+            <div class="store__texts">
+                <p class="store__title--text">STORE </p>
+                <p class="store__sub--text">파라다이스 시티에 오신 걸 환영합니다.</p>
+                <p class="store__more">더보기</p>
+            </div>
+            <div class="store__wrap">
+                <div class="store__padding">
+                    <div class="store">
+                        <div class="store__img">
+                            <img src="./p-city_img/store_img1.png" alt="" class="store__img--link">
+                        </div>
+                        <div class="store__text--box--wrap">
+                            <div href="" class="store__text--box">
+                                <p class="store__text--title">파라다이스시티</p>
+                                <p class="store__text--sub">인천광역시 중구 영종해안남로 321번길 186</p>
+                                <div class="store__text--last--wrap">
+                                    <ul class="store__text--last">
+                                        <li>Tel 1833 - 8855</li>
+                                        <li>Fax 032 - 729 - 2100</li>
+                                        <li>E-mail p-city@paradian.com</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="store__padding">
+                    <div class="store">
+                        <div class="store__img">
+                            <img src="./p-city_img/store_img2.png" alt="" class="store__img--link">
+                        </div>
+                        <div class="store__text--box--wrap">
+                            <div href="" class="store__text--box">
+                                <p class="store__text--title">호텔부산</p>
+                                <p class="store__text--sub">부산광역시 해운대구 해운대 해변로 296</p>
+                                <div class="store__text--last--wrap">
+                                    <ul class="store__text--last">
+                                        <li>Tel 051-742-2121</li>
+                                        <li>Fax 051-742-2100 </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="store__padding">
+                    <div class="store">
+                        <div class="store__img">
+                            <img src="./p-city_img/store_img3.png" alt="" class="store__img--link">
+                        </div>
+                        <div class="store__text--box--wrap">
+                            <div href="" class="store__text--box">
+                                <p class="store__text--title">스파도고</p>
+                                <p class="store__text--sub">충청남도 아산시 도고면 도고온천로 176</p>
+                                <div class="store__text--last--wrap">
+                                    <ul class="store__text--last">
+                                        <li>Tel 041-537-7100</li>
+                                        <li>Fax 032 - 729 - 2100</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Footer -->
+        <footer class="footer__mobile">
+            <div class="footer__icons--line">
+                <ul class="footer__icons">
+                    <li class="footer__icons--list">
+                        <div class="icons--list">
+                            <i class="material-icons">room</i>
+                            <span class="icon--text">오시는 길</span>
+                        </div>
+                    </li>
+                    <li class="footer__icons--list">
+                        <div class="icons--list">
+                            <i class="material-icons">settings_phone</i>
+                            <span class="icon--text">전화예약</span>
+                        </div>
+                    </li>
+                    <li class="footer__icons--list">
+                        <div class="icons--list">
+                            <i class="material-icons">account_circle</i>
+                            <span class="icon--text">채용 관리</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__texts--line">
+                <ul class="texts__line--top">
+                    <li class="line__top--list">개인정보 처리 방침</li>
+                    <li class="line__top--list">영상정보처리기기 운영, 관리방침</li>
+                    <li class="line__top--list2">이용약관</li>
+                </ul>
+                <p class="footer__texts1">인천광역시 중구 영종해안남로 321번길 186</p>
+                <ul class="texts__line--bottom">
+                    <li class="line__bottom--list">T. 1833-8855</li>
+                    <li class="line__bottom--list">E. p-city@paradian.com</li>
+                    <li class="line__bottom--list2">사업자등록번호 : 121-86-18441 </li>
+                </ul>
+                <p class="footer__texts2">Copyright © PARADISE SEGASAMMY Co. Ltd. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <div class="section fp-auto-height">
+            <!-- Desktop Footer -->
+            <footer class="footer__desktop--wrap">
+                <div class="footer__desktop">
+                    <div class="footer__logo">
+                        <img src="./p-city_img/footer_logo.png" alt="">
+                    </div>
+                    <div class="footer__desktop--texts">
+                        <ul class="footer__desktop--top">
+                            <li class="desktop__top--list">오시는 길</li>
+                            <li class="desktop__top--list">전화예약</li>
+                            <li class="desktop__top--list">채용관리</li>
+                            <li class="desktop__top--list">개인정보 처리 방침</li>
+                            <li class="desktop__top--list">영상정보처리기기 운영, 관리방침</li>
+                            <li class="desktop__top--list">이용약관</li>
+                        </ul>
+                        <ul class="footer__desktop--bottom">
+                            <li class="desktop__bottom--list">인천광역시 중구 영종해안남로 321번길 186</li>
+                            <li class="desktop__bottom--list">T. 1833-8855</li>
+                            <li class="desktop__bottom--list">E. p-city@paradian.com</li>
+                            <li class="desktop__bottom--list">사업자등록번호 : 121-86-18441 </li>
+                        </ul>
+                        <div class="footer__desktop--btn--wrap">
+                            <p class="footer__desktop--text">Copyright © PARADISE SEGASAMMY Co. Ltd. All rights reserved.</p>
+                            <span class="footer__map--btn">
+                                <a href="">네이버 지도보기</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

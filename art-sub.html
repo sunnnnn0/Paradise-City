@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- viewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- 메타리어아이콘 -->
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <!-- css연결 -->
+        <link rel="stylesheet" href="./p-city.css">
+        <!-- 폰트설정 -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,900|Noto+Sans+KR:300,400,700&display=swap" rel="stylesheet">
+        <!-- fullpage.js -->
+        <link rel="stylesheet" href="./fullpage.min.css">
+        <script src="./js/jquery.js"></script>
+        <script src="./js/fullpage.min.js"></script>
+        <script src="./js/scrolloverflow.min.js"></script>
+        <script>
+            $(function(){
+                //드롭다운 메뉴 스크립트
+                $(".icon__menu").click(function(e){
+                    e.preventDefault();
+                    $(this).css("display","none");
+                    $(".icon__close").css("display","block");
+                    
+                    $(".mNav__wrap").slideToggle();
+                });
+                
+                $(".icon__close").click(function(){
+                    $(this).css("display","none");
+                    $(".icon__menu").css("display","block");
+                    
+                    $(".mNav__wrap").css("display","none");
+                });
+                
+                //드롭다운 메뉴 안에 자식 드롭다운 메뉴 스크립트
+                $(".mNav__menu").click(function(){
+                    $(this).next().slideToggle(200);
+                    $(this).parent().siblings(".mNavList").children(".mNav__subList").slideUp(200);
+                    
+                    var btn = $(this).children(".mNav__menu--btn").hasClass("active");
+                    
+                    if (btn == false) {
+                        $(".mNav__menu--btn").removeClass("active") 
+                        $(this).children(".mNav__menu--btn").addClass("active");
+                    }
+                    else {
+                        $(this).children(".mNav__menu--btn").removeClass("active");
+                    }
+                }); 
+            });
+        </script>  
+    </head>
+
+    <body>
+        <!-- Dropdown Menu -->
+        <div class="mNav__wrap">
+            <ul class="mNav">
+                <li class="mNavList">
+                    <div class="mNav__menu">
+                        <h2 class="mNav__menu--title">ABOUT</h2>
+                        <div class="mNav__menu--btn">
+                            <span class="material-icons">keyboard_arrow_down</span>
+                        </div>
+                        <a href="#" class="icon__close">
+                            <span class="material-icons">clear</span>
+                        </a>
+                    </div>
+                    <ul class="mNav__subList">
+                        <li class="mNav__subList--list">
+                            <a href="/paradisecity/about-1.html">ABOUT1</a>
+                        </li>
+                        <li class="mNav__subList--list">
+                            <a href="/paradisecity/about-2.html">ABOUT2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mNavList">
+                    <div class="mNav__menu">
+                        <h2 class="mNav__menu--title">HOTELS</h2>
+                        <div class="mNav__menu--btn">
+                            <span class="material-icons">keyboard_arrow_down</span>
+                        </div>
+                    </div>
+                    <ul class="mNav__subList">
+                        <li class="mNav__subList--list">
+                            <a href="/paradisecity/rooms.html">ROOMS</a>
+                        </li>
+                        <li class="mNav__subList--list">
+                            <a href="/paradisecity/dining.html">DINING</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mNavList">
+                    <div class="mNav__menu">
+                        <h2 class="mNav__menu--title">ENTERTAINMENT</h2>
+                        <div class="mNav__menu--btn">
+                            <span class="material-icons">keyboard_arrow_down</span>
+                        </div>
+                    </div>
+                    <ul class="mNav__subList">
+                        <li class="mNav__subList--list">
+                            <a href="/paradisecity/casino.html">CASINO</a>
+                        </li>
+                        <li class="mNav__subList--list">
+                            <a href="/paradisecity/art.html">ART</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mNavList">
+                    <div class="mNav__menu">
+                        <h2 class="mNav__menu--title">
+                            <a href="#">RESERVATION</a>
+                        </h2>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mobile Header -->
+        <div class="mobile__header--wrap">
+            <header class="mobile__header">
+                <a href="./index.html" class="nav__logo--link">
+                    <img src="./p-city_img/p-city_mobile-logo@3x.png" alt="" class="mobile__logo--img">     
+                </a>
+                <div class="header__icon">
+                    <a href="#" class="icon__search">
+                        <span class="material-icons">search</span>
+                    </a>
+                    <a href="#" class="icon__menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </div>
+            </header>
+        </div>
+                
+        <!-- Desktop Header -->
+        <header class="desktop__header--subpage">
+            <a href="./index.html" class="nav__desk--logo--s--subpage">
+                <img src="./p-city_img/p-city_desktop-logo(1280).png" alt="">
+            </a>
+            <div class="desktop__header--menu">
+                <p>MENU</p>
+            </div>    
+        </header>
+        
+        <!-- Art Sub -->
+        <div class="art_sub">
+            <div class="art_sub__img">
+                <img src="./p-city_img/art_sub_img.png" alt="">
+            </div>
+            <div class="art_sub__texts">
+                <p class="art_sub__title--text">Gazing Ball<br>(Farnese Hercules)</p>
+                <p class="art_sub__title--title">작품설명</p>
+                <p class="art_sub__title--content1">작가는 설치작품, 회화, 조각 등 다양한 장르를 통해 미술과 과학, 대중문화의 전통적인 경계에 도전합니다. 또한 신화적 생물을 통해 신화와과학의 관계에 대해 고찰하며, 생물을 신비롭거나 희망적인 환상으로만 보지 않고 현실적으로 바라보기를 의도합니다.  신화적 동물인 날개달린 말의 해부된 절반은 신화를 실재로 만드는 연출이라 할 수 있습니다.</p>
+                <p class="art_sub__title--title">작가설명</p>
+                <p class="art_sub__title--content2">영국을 넘어 현대미술의 아이콘', '미술계의 악동'으로도 불리는 데미안 허스트는 영국 브리스톨에서 출생하여 런던 골드스미스 컬리지에서 수학했습니다. 대학 졸업을 앞두고 젊은 작가들과 함께 yBa(young British artists)를 결성해 프리즈(Freeze)라는 전시를 기획하면서 유명세를 타기 시작했습니다.  작가는 삶과 죽음, 신화와 과학 등 철학적이고 근본적인 개념을 특유의 쇼킹하면서도 직관적인 시각언어를 활용해 관객들에게 전달합니다. 1995년에는 런던 테이트 갤러리가 최고의작가에게 수여하는 상인 터너상을 수상했습니다.</p>
+                <p class="art_sub__sub--text">Jeff Koons</p>
+            </div>
+        </div>
+
+
+        <!-- Mobile Footer -->  
+        <footer class="footer__mobile">
+           <div class="footer__icons--line">
+                <ul class="footer__icons">
+                    <li class="footer__icons--list">
+                        <div class="icons--list">
+                            <i class="material-icons">room</i>
+                            <span class="icon--text">오시는 길</span>
+                        </div>
+                    </li>
+                    <li class="footer__icons--list">
+                        <div class="icons--list">
+                            <i class="material-icons">settings_phone</i>
+                            <span class="icon--text">전화예약</span>
+                        </div>
+                    </li>
+                    <li class="footer__icons--list">
+                        <div class="icons--list">
+                            <i class="material-icons">account_circle</i>
+                            <span class="icon--text">채용 관리</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__texts--line">
+                <ul class="texts__line--top">
+                    <li class="line__top--list">개인정보 처리 방침</li>
+                    <li class="line__top--list">영상정보처리기기 운영, 관리방침</li>
+                    <li class="line__top--list2">이용약관</li>
+                </ul>
+                <p class="footer__texts1">인천광역시 중구 영종해안남로 321번길 186</p>
+                <ul class="texts__line--bottom">
+                    <li class="line__bottom--list">T. 1833-8855</li>
+                    <li class="line__bottom--list">E. p-city@paradian.com</li>
+                    <li class="line__bottom--list2">사업자등록번호 : 121-86-18441 </li>
+                </ul>
+                <p class="footer__texts2">Copyright © PARADISE SEGASAMMY Co. Ltd. All rights reserved.</p>
+            </div>
+        </footer>
+        
+        <!-- Desktop Footer -->
+        <footer class="footer__desktop--wrap">
+            <div class="footer__desktop">
+                <div class="footer__logo">
+                    <img src="./p-city_img/footer_logo.png" alt="">
+                </div>
+                <div class="footer__desktop--texts">
+                    <ul class="footer__desktop--top">
+                        <li class="desktop__top--list">오시는 길</li>
+                        <li class="desktop__top--list">전화예약</li>
+                        <li class="desktop__top--list">채용관리</li>
+                        <li class="desktop__top--list">개인정보 처리 방침</li>
+                        <li class="desktop__top--list">영상정보처리기기 운영, 관리방침</li>
+                        <li class="desktop__top--list">이용약관</li>
+                    </ul>
+                    <ul class="footer__desktop--bottom">
+                        <li class="desktop__bottom--list">인천광역시 중구 영종해안남로 321번길 186</li>
+                        <li class="desktop__bottom--list">T. 1833-8855</li>
+                        <li class="desktop__bottom--list">E. p-city@paradian.com</li>
+                        <li class="desktop__bottom--list">사업자등록번호 : 121-86-18441 </li>
+                    </ul>
+                    <div class="footer__desktop--btn--wrap">
+                        <p class="footer__desktop--text">Copyright © PARADISE SEGASAMMY Co. Ltd. All rights reserved.</p>
+                        <span class="footer__map--btn">
+                            <a href="">네이버 지도보기</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer> 
+	</body>
+</html>
